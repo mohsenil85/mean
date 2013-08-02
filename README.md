@@ -1,2 +1,2 @@
-mean-stack-skeleton
+MEANIE APP
 ===================
