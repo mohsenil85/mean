@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 this here app is a #{title}
+  p brought to you by log
+  h2 Upcoming
+  - each todo in todos
+    -if (!todo.done)
+      div
+        input(type = "checkbox")
+        | #{todo.description}
+      div
+        | #{todo.due.toDateString()}
+  h2 Completed
+  -each todo in todos
+    -if (todo.done)
+      div
+        input(type = "checkbox", checked="true")
+        del #{todo.description}
+      div
+        | #{todo.due.toDateString()}
