@@ -3,25 +3,17 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'meanie',
-    todos: [
-  {
-    description:"buy eggs",
-    due: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
-    done: false
-  },
-  {
-    description:"buy more eggs",
-    due: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000),
-    done: false
-  },
-  {
-    description:"buy even more eggs",
-    due: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
-    done: true
-     
-  }
-    ]
-  });
+exports.index = function(todos){
+  return function (req, res){
+    res.render('index', {
+      title: 'MEANIE',
+      todos: todos
+    });
+  };
+};
+exports.addTodo = function (todos) {
+  return function(req, res) {
+    todos.push(req.body);
+    res.json({todos: todos});
+  };
 };

@@ -21,4 +21,6 @@ describe('Todo list', function()  {
     sleep(0.1);
     expect(repeater('.not-done').count() ).toBe(2);
     expect(repeater('.done').count() ).toBe(1);
+    sleep(10);
   });
+});

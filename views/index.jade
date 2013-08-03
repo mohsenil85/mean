@@ -9,9 +9,14 @@ block content
   div.container(ng-controller="TodoListController", ng-init="setTodos( #{JSON.stringify(todos)} )")
     h1 this here app is a #{title}
     p brought to you by log
+    h2 MORE SHIT
+    form(novalidate, ng-submit="addNewTodo()")
+      textarea(ng-model="newTodo.description", placeholder="im so stressed")
+      br
+      button.btn.btn-primary(type="submit") Add Todo
     h2 Upcoming
     div
-      div.row(ng-repeat="todo in todos | filter:notDoneFilter")
+      div.row.todo.not-done(ng-repeat="todo in todos | filter:notDoneFilter")
         div.span9
           label.checkbox
             input(type="checkbox", ng-model="todo.done")
@@ -20,7 +25,7 @@ block content
           i {{todo.due | date:'MMM d, yyyy'}}
     h2 done
     div
-      div.row(ng-repeat="todo in todos | filter:doneFilter")
+      div.row.todo.done(ng-repeat="todo in todos | filter:doneFilter")
         div.span9
           label.checkbox
             input(type="checkbox", ng-model="todo.done")
