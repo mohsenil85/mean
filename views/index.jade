@@ -13,6 +13,8 @@ block content
     form(novalidate, ng-submit="addNewTodo()")
       textarea(ng-model="newTodo.description", placeholder="im so stressed")
       br
+      datepicker(ng-model="newTodo.due")
+      br
       button.btn.btn-primary(type="submit") Add Todo
     h2 Upcoming
     div
