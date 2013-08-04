@@ -14,6 +14,8 @@ var app = express();
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
 
+var TodoSchema = require('./models/Todo.js').TodoSchema;
+var Todo = db.model('todos', TodoSchema);
 /**
  * all environments
  */
